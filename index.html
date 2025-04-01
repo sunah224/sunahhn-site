@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sunahhn | 단일 페이지 웹사이트</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    .page { display: none; }
+    .page.active { display: block; }
+  </style>
+</head>
+<body class="bg-white text-gray-800 font-sans">
+  <!-- 상단 숫자 내비게이션 -->
+  <div class="flex justify-center space-x-4 py-6 text-xl font-bold">
+    <button onclick="showPage(1)" class="hover:text-blue-600">1</button>
+    <button onclick="showPage(2)" class="hover:text-blue-600">2</button>
+    <button onclick="showPage(3)" class="hover:text-blue-600">3</button>
+  </div>
+
+  <!-- 페이지 1: 연락처 정보 -->
+  <div id="page1" class="page active text-center px-4 py-10">
+    <h2 class="text-3xl font-bold mb-4">연락처</h2>
+  </div>
+
+  <!-- 페이지 2: 양력 -->
+  <div id="page2" class="page px-4 py-10 max-w-3xl mx-auto">
+    <h2 class="text-3xl font-bold mb-6">양력</h2>
+  </div>
+
+  <!-- 페이지 3: 성장배경 -->
+  <div id="page3" class="page text-center px-4 py-10">
+    <h2 class="text-3xl font-bold mb-4">성장배경</h2>
+  </div>
+
+  <script>
+    function showPage(pageNumber) {
+      const pages = document.querySelectorAll('.page');
+      pages.forEach(p => p.classList.remove('active'));
+      document.getElementById(`page${pageNumber}`).classList.add('active');
+    }
+  </script>
+</body>
+</html>
